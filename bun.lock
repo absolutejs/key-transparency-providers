@@ -5,7 +5,7 @@
     "": {
       "name": "@absolutejs/key-transparency-providers",
       "devDependencies": {
-        "@absolutejs/key-transparency": "0.1.0",
+        "@absolutejs/key-transparency": "0.2.0",
         "@absolutejs/manifest": "^0.9.0",
         "@sinclair/typebox": "^0.34.0",
         "@types/bun": "^1.3.14",
@@ -15,7 +15,7 @@
     },
     "memory": {
       "name": "@absolutejs/key-transparency-memory",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "dependencies": {
         "@absolutejs/manifest": "^0.9.0",
         "@sinclair/typebox": "^0.34.0",
@@ -26,12 +26,12 @@
         "typescript": "^5.9.0",
       },
       "peerDependencies": {
-        "@absolutejs/key-transparency": ">=0.1.0 <0.2",
+        "@absolutejs/key-transparency": ">=0.2.0 <0.3",
       },
     },
   },
   "packages": {
-    "@absolutejs/key-transparency": ["@absolutejs/key-transparency@0.1.0", "", { "dependencies": { "@absolutejs/manifest": "^0.9.0", "@sinclair/typebox": "^0.34.0" } }, "sha512-HF1Pmw+Shh6mn8gmxRhdfOtyMGUsoMs7gHCP+0f9i4cZRuzldWW76lAAZb3ej+KJwEMxKd1kjobCfsspoM7POg=="],
+    "@absolutejs/key-transparency": ["@absolutejs/key-transparency@0.2.0", "", { "dependencies": { "@absolutejs/manifest": "^0.9.0", "@sinclair/typebox": "^0.34.0" } }, "sha512-KUK+CTh9c6+EbfbL+0m7+b0RuIwqHiVaKhxgSWuf3t04Feb50UoqhgWitNqlhMQe8FxvqW3htNmJTnP5ENlnnA=="],
 
     "@absolutejs/key-transparency-memory": ["@absolutejs/key-transparency-memory@workspace:memory"],
 

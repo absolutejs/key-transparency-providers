@@ -199,7 +199,7 @@ export const createMemoryKeyTransparencyProvider = async (
         splitViewDetection: false,
         thirdPartyAuditing: false,
       },
-      version: "0.1.0",
+      version: "0.2.0",
     },
     monitor: async ({ labels, mode, priorView }) => {
       if (labels.length === 0 || labels.length > MAX_MONITORED_LABELS) {

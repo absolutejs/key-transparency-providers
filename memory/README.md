@@ -23,3 +23,7 @@ const provider = await createMemoryKeyTransparencyProvider({
 ```
 
 Never use this provider for production identities.
+
+The package publishes a version-bound Bun certification report for its limited
+conformance and adversarial lifecycle. It deliberately claims no official IETF
+vectors, cross-implementation behavior, split-view drill, or independent audit.

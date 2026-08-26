@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import {
   checkKeyTransparencyProviderConformance,
+  checkKeyTransparencyCertification,
   createKeyTransparencyClient,
   createMemoryKeyTransparencyViewStore,
   keyTransparencyValueDigest,
@@ -9,6 +10,7 @@ import {
   MEMORY_KEY_TRANSPARENCY_PROTOCOL,
   createMemoryKeyTransparencyProvider,
 } from "../src";
+import { memoryKeyTransparencyCertification } from "../src/certification";
 
 const now = 1_800_000_000_000;
 const label = { bytes: new TextEncoder().encode("opaque-user-label") };
@@ -105,5 +107,22 @@ describe("memory key-transparency provider", () => {
       now: () => now,
     });
     expect(result).toEqual({ issues: [], passed: true });
+  });
+
+  test("publishes certification bound to the exact limited provider release", async () => {
+    const { provider } = await setup();
+    const result = checkKeyTransparencyCertification(
+      memoryKeyTransparencyCertification,
+      {
+        manifest: provider.manifest,
+        maximumAgeMs: 86_400_000,
+        now: new Date("2026-08-26T21:00:00.000Z"),
+        requiredClaims: ["provider-conformance", "adversarial-lifecycle"],
+        runtime: "bun",
+      },
+    );
+    expect(result.passed).toBe(true);
+    expect(result.report.claims).not.toContain("independent-audit");
+    expect(result.report.claims).not.toContain("official-vectors");
   });
 });
